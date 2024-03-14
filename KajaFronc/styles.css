@@ -11,10 +11,42 @@
   --nypl-breakpoint-xl: 1280px;
 }
 
+* {
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--chakra-colors-white);
   color: var(--chakra-colors-black);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 900;
   font-style: normal;
+}
+
+.displayNone {
+  display: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 8px;
+  border-bottom: 2px solid var(--nypl-colors-brand-primary);
+}
+
+.header-brand {
+  height: 40px;
+  width: 40px;
+}
+
+.header-brand-logo {
+  height: 100%;
+}
+
+.button-basic {
+  border: none;
+  background-color: transparent;
 }
