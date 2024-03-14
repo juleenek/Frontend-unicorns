@@ -13,7 +13,6 @@
 
 * {
   font-size: 18px;
-  box-sizing: border-box;
 }
 
 body {
@@ -24,9 +23,7 @@ body {
   font-style: normal;
 }
 
-.displayNone {
-  display: none;
-}
+/* --------- header --------- */
 
 .header {
   display: flex;
@@ -49,4 +46,46 @@ body {
 .button-basic {
   border: none;
   background-color: transparent;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+
+.button-nav {
+  width: 60px;
+  height: 60px;
+}
+
+/* --------- burger menu --------- */
+
+.button-burgerMenu {
+  position: relative;
+  display: inline-block;
+}
+
+.button-burgerMenu svg {
+  position: absolute;
+  bottom: 33%;
+  left: 30%;
+}
+.button-burgerMenu:focus {
+  background-color: var(--color--secondary);
+}
+
+.displayNone {
+  display: none;
+}
+
+.button-burgerMenu:focus .displayNone {
+  display: block;
+}
+
+.button-burgerMenu:focus .burgerMenu-icon {
+  display: none;
+}
+
+.colorWhite {
+  color: var(--chakra-colors-white);
 }
