@@ -1,7 +1,18 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+* {
+  font-size: 16px;
+}
+
 :root {
   --color--primary: #e2e8f0;
   --color--secondary: #2b2b2b;
   --nypl-colors-brand-primary: #c60917;
+  --chakra-colors-red-200: #e32b31;
   --chakra-colors-black: #000000;
   --chakra-colors-white: #ffffff;
 
@@ -9,18 +20,50 @@
   --nypl-breakpoint-medium: 600px;
   --nypl-breakpoint-large: 960px;
   --nypl-breakpoint-xl: 1280px;
-}
 
-* {
-  font-size: 18px;
+  --bar-width: 16px;
+  --bar-height: 2px;
+  --hamburger-gap: 3px;
+  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+  --hamburger-foreground: #2b2b2b;
+  --hamburger-background: #e2e8f0;
 }
 
 body {
   background-color: var(--chakra-colors-white);
   color: var(--chakra-colors-black);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-weight: 900;
+  font-weight: 500;
   font-style: normal;
+}
+
+/* --------- buttons --------- */
+
+.button-basic {
+  border: none;
+  background-color: transparent;
+}
+
+.header-nav-button {
+  width: 60px;
+  height: 60px;
+}
+
+.menu-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.menu-button-donate {
+  background-color: var(--chakra-colors-red-200);
+}
+
+.get-menu-button {
+  border: 1px solid rgb(54, 54, 54);
+  width: 50%;
+  padding: 27px 0 27px 15px;
 }
 
 /* --------- header --------- */
@@ -29,7 +72,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
+  height: 62px;
   padding: 0 8px;
   border-bottom: 2px solid var(--nypl-colors-brand-primary);
 }
@@ -43,49 +86,121 @@ body {
   height: 100%;
 }
 
-.button-basic {
-  border: none;
-  background-color: transparent;
-}
-
 .header-nav {
   display: flex;
   align-items: center;
 }
 
-.button-nav {
+/* --------- hamburger menu --------- */
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+  content: "";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: var(--hamburger-foreground);
+  position: relative;
+  left: 22px;
+  top: 22px;
+  transform-origin: left center;
+}
+
+.hamburger-menu {
+  --x-widht: calc(var(--hamburger-height) * 1.4142135);
+
+  display: flex;
+  flex-direction: column;
   width: 60px;
   height: 60px;
+  gap: var(--hamburger-gap);
+  cursor: pointer;
 }
 
-/* --------- burger menu --------- */
-
-.button-burgerMenu {
-  position: relative;
-  display: inline-block;
+.hamburger-menu input {
+  appearance: none;
+  outline: none;
+  pointer-events: none;
 }
 
-.button-burgerMenu svg {
-  position: absolute;
-  bottom: 33%;
-  left: 30%;
+.hamburger-menu:has(input:checked)::before {
+  rotate: 45deg;
+  width: var(--x-widht);
+  translate: 0 calc(var(--bar-height) / -2);
 }
-.button-burgerMenu:focus {
+
+.hamburger-menu:has(input:checked)::after {
+  rotate: -45deg;
+  width: var(--x-widht);
+  translate: 0 calc(var(--bar-height) / 2);
+}
+
+.hamburger-menu:has(input:checked) {
+  --hamburger-foreground: #e2e8f0;
   background-color: var(--color--secondary);
 }
 
-.displayNone {
-  display: none;
+.hamburger-menu input:checked {
+  opacity: 0;
+  width: 0;
 }
 
-.button-burgerMenu:focus .displayNone {
-  display: block;
+/* --------- menu --------- */
+
+.menu-container {
+  translate: -100%;
 }
 
-.button-burgerMenu:focus .burgerMenu-icon {
-  display: none;
+.hamburger-menu:has(input:checked) + .menu-container {
+  translate: 0;
 }
 
-.colorWhite {
+.menu-container {
+  background-color: var(--color--secondary);
   color: var(--chakra-colors-white);
+  position: absolute;
+  width: 100%;
+  top: 60px;
+  left: 0px;
+  z-index: 99999;
+  min-height: 540px;
+}
+
+.menu-logo-mobile {
+  width: 110px;
+}
+
+.menu-NYPLLogo {
+  margin-top: 25px;
+  margin-left: 15px;
+  width: 100%;
+  height: auto;
+}
+
+.menu-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-nav-list {
+  padding: 15px;
+  margin: 0;
+  text-align: right;
+  text-decoration: none;
+  list-style: none;
+  line-height: 2.5rem;
+}
+
+.menu-nav-list-item {
+  font-size: 1.125rem;
+}
+
+.get-menu {
+  display: flex;
+  justify-content: space-around;
+}
+
+.menu-buttons-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
 }
