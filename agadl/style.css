@@ -1,0 +1,148 @@
+.body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    padding: 0;
+    border-bottom: 1px solid #E32B31;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__logo--small {
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+}
+
+.header__logo--big {
+    display: none;
+}
+
+.nav__icons {
+    display: flex;
+}
+
+.icons__item {
+    height: 24px;
+    width: 24px;
+    padding: 18px;
+}
+
+.nav__links {
+    display: none;
+}
+
+@media screen and (min-width: 52rem) {
+    .header {
+        height: 80px;
+        padding: 16px 0px;
+    }
+
+    .header__logo--small {
+        height: 74px;
+        width: 74px;
+    }
+
+    .nav__icons {
+        display: none;
+    }
+
+    .nav__links {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+    }
+
+    .nav__links--top {
+        font-size: 0.9rem;
+    }
+
+      .links__list {
+        list-style-type: none;
+        display: flex;
+        padding-inline-start: unset;
+    }
+
+    .list__item {
+        margin-right: 16px;
+    }
+
+    .item__link {
+        text-decoration: none;
+        color: black;
+    }
+
+    .item__link--donate {
+        background-color: #C60917;
+        border-radius: 2px;
+        padding: 8px 16px;
+        color: white;
+    }
+
+    .list__item--search {
+        display: flex;
+        border-bottom: 1px solid #0069BF;
+    }
+
+    .item__link--search {
+        color: #0069BF;
+    }
+
+    .item__icon {
+        height: 20px;
+        width: 20px;
+        padding-left: 5px;
+        fill: #0069BF;
+    }
+}
+
+@media screen and (min-width: 64.375rem) {
+    .header {
+        height: 97px;
+    }
+
+    .header__logo--small {
+        display: none;
+    }
+
+    .header__logo--big {
+        display: block;
+        height: 90px;
+        width: 170px;
+        padding-left: 16px;
+    }
+
+    .nav__links--bottom {
+        padding-top: 15px;
+    }
+}
+
+@media screen and (min-width: 82.063rem) {
+    .header__logo--big {
+        margin-left: 16px;
+    }
+
+    .nav__links {
+        margin-right: 16px;
+    }
+
+    .list__item {
+        margin-right: 25px;
+    }
+}
+
+@media screen and (min-width: 84.875rem){
+    .header__logo--big {
+        margin-left: 39px;
+    }
+
+    .nav__links {
+        margin-right: 39px;
+    }
+}
